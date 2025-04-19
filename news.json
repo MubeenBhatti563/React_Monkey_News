@@ -1,0 +1,136 @@
+{
+    "status": "ok",
+    "totalResults": 10,
+    "articles": [
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "France fire: Children among 7 dead in suspected arson attack in Nice",
+            "description": "Seven people have died, including three children, in a fire that broke out in the early hours of Thursday.",
+            "url": "https://www.bbc.co.uk/news/articles/c51yjpmk70go",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/794a/live/0c86c560-44d0-11ef-aa4b-fb5e290d435f.jpg",
+            "publishedAt": "2024-07-18T09:22:14.7726698Z",
+            "content": "The fire broke out on the seventh floor. Nice prosecutor Damien Martinelli told journalists that in light of initial findings, \"I have opened an inquiry into acts of arson as the cause of death.\"\r\nLo… [+958 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Germany plans to halve military aid for Ukraine",
+            "description": "Berlin says a G7 scheme to raise $50bn from interest on frozen Russian assets will ensure other funding.",
+            "url": "https://www.bbc.co.uk/news/articles/c0kr91zqp0lo",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/f8ba/live/b76f65a0-449d-11ef-80ab-5dca1a4193cb.png",
+            "publishedAt": "2024-07-18T09:22:12.1170788Z",
+            "content": "Germany is planning to nearly halve military aid for Ukraine next year, from around 8bn (£6.7bn; $8.7bn) to around 4bn, according to a draft budget approved by the government. \r\nFinance Minister Chri… [+579 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Jack Black cancels Tenacious D tour after Kyle Gass's comments about Donald Trump",
+            "description": "Kyle Gass sparked an outcry with a comment on stage about the assassination attempt on Donald Trump.",
+            "url": "https://www.bbc.co.uk/news/articles/c0dmx4p4m0lo",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/8e01/live/9be68a30-4370-11ef-9011-89bda6c8bbd4.jpg",
+            "publishedAt": "2024-07-18T09:07:17.788467Z",
+            "content": "Jack Black has said hes cancelled the rest of the Tenacious D world tour after his bandmate Kyle Gass sparked an outcry with a comment about the assassination attempt on Donald Trump.\r\nThe comedy roc… [+818 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Who is Usha Vance?",
+            "description": "A graduate of Cambridge University and Yale, Usha Vance has influenced her husband JD Vance's career since they first met.",
+            "url": "https://www.bbc.co.uk/news/articles/c897483zpyeo",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/41d6/live/863bd3f0-44b2-11ef-9e1c-3b4a473456a6.jpg",
+            "publishedAt": "2024-07-18T07:52:19.1323726Z",
+            "content": "In an interview on Fox News last month, she said: \"I believe in JD, and I really love him, and so well just sort of see what happens with our life.\"\r\nOn Wednesday, she echoed that sentiment: \"Neither… [+835 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Dinosaur skeleton fetches record $44.6m at New York auction",
+            "description": "The near complete skeleton of a stegosaurus - named Apex - is 11ft (3.4m) tall and 27ft long, Sotheby's says.",
+            "url": "https://www.bbc.co.uk/news/articles/c0358njg6z6o",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/bc41/live/3362d500-448c-11ef-8eea-a1700e9d407a.png",
+            "publishedAt": "2024-07-18T07:22:17.7415711Z",
+            "content": "\"The finest stegosaurus to appear at auction, 'Apex' has made history today [Wednesday] selling for $44.6 million at Sothebys to become the most valuable fossil ever sold at auction,\" Sotheby's said … [+645 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Near-extinct Siamese crocs make comeback in Cambodia",
+            "description": "The hatching of 60 eggs is a record for the endangered species in this century.",
+            "url": "https://www.bbc.co.uk/news/articles/c87r3ygzljdo",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/f835/live/cc3819a0-44b6-11ef-9a3d-a716bc0795d5.jpg",
+            "publishedAt": "2024-07-18T07:07:17.4292078Z",
+            "content": "Siamese crocodiles were once widespread throughout much of South East Asia. \r\nBut decades of hunting and habitat loss have tuned them into what conservations classify as \"critically endangered\" speci… [+1314 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Instagram account of Dubai princess announces divorce",
+            "description": "A post addressed \"dear husband\" says Sheikha Mahra wants a divorce, after a lavish 2023 wedding to Sheikh Mana.",
+            "url": "https://www.bbc.co.uk/news/articles/cx92pl0q8evo",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/0f6b/live/859afa80-447a-11ef-b74c-bb483a802c97.png",
+            "publishedAt": "2024-07-18T06:52:16.8714089Z",
+            "content": "The post, which begins \"Dear Husband\", concluded - \"I divorce you, I divorce you, and I divorce you,\" seemingly using the Islamic practice known as triple talaq.\r\nThe practice has been banned in many… [+762 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Vance: Trump running mate vows to fight for 'forgotten' America",
+            "description": "The young vice-presidential pick channelled his working-class roots as he assailed “career politicians” like President Biden.",
+            "url": "https://www.bbc.co.uk/news/articles/crgl9dgjgkxo",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/bead/live/cc9dd8f0-44b9-11ef-9e1c-3b4a473456a6.jpg",
+            "publishedAt": "2024-07-18T05:07:14.0548119Z",
+            "content": "Donald Trumps vice-presidential pick JD Vance vowed in a primetime speech to fight for working-class Americans that he argued had been cast aside and forgotten by the Democrats.\r\nIntroducing himself … [+827 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Trump shooter seen as threat before attack, was lost in crowd",
+            "description": "The killer had also searched for pictures of Donald Trump and President Joe Biden before the shooting, law enforcement told lawmakers Wednesday.",
+            "url": "https://www.bbc.co.uk/news/articles/c51ydg792ggo",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/a8a9/live/9e9a5450-4488-11ef-b568-1bce71e46479.jpg",
+            "publishedAt": "2024-07-18T00:37:16.460942Z",
+            "content": "Donald Trump's would-be assassin was flagged as \"suspicious\" up to an hour before he began shooting and his phone's history showed he'd searched for images of the Republican, senators have heard amid… [+1318 chars]"
+        },
+    {
+    "source": {
+                "id": "bbc-news",
+                "name": "BBC News"
+            },
+            "author": "BBC News",
+            "title": "Joe Biden suffering Covid infection, White House says",
+            "description": "This is the third time the president has tested positive for the disease.",
+            "url": "https://www.bbc.co.uk/news/articles/cv2gj8314nqo",
+            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/fabe/live/4e296a00-4489-11ef-b568-1bce71e46479.jpg",
+            "publishedAt": "2024-07-17T22:52:15.4524372Z",
+            "content": "Ms Jean-Pierre said the president planned to isolate at his home in Delaware while he carries out \"all of his duties fully during that time\". \r\nThe president's doctor, Kevin O'Connor, said Mr Biden p… [+925 chars]"
+        }
+    ]
+}
