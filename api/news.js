@@ -1,10 +1,7 @@
-// api/news.js
 export default async function handler(req, res) {
-  // Allows your GitHub Pages site to read the data securely
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET");
 
-  // Capture ALL the query parameters sent by your React component
   const {
     country = "us",
     category = "general",
@@ -12,15 +9,26 @@ export default async function handler(req, res) {
     pageSize = 6,
   } = req.query;
 
-  // Uses the secure token saved on Vercel's dashboard website
-  const apiKey = process.env.React_App_NewsMonkey;
+  const apiKey = process.env.NEWS_API_KEY;
+
+  if (!apiKey) {
+    return res.status(500).json({
+      status: "error",
+      message: "Missing API key in environment variables",
+    });
+  }
+
   const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}&apiKey=${apiKey}`;
 
   try {
-    const apiResponse = await fetch(url);
-    const data = await apiResponse.json();
+    const response = await fetch(url);
+    const data = await response.json();
+
     return res.status(200).json(data);
   } catch (error) {
-    return res.status(500).json({ error: "Failed to fetch news data" });
+    return res.status(500).json({
+      status: "error",
+      message: "Failed to fetch news data",
+    });
   }
 }

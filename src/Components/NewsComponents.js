@@ -22,33 +22,39 @@ export default function NewsComponents({
     setLoading(true);
     setError(null);
     setProgress(10);
-    try {
-      // 1. Determine base URL automatically (Local testing vs Live Production)
-      const baseUrl =
-        window.location.hostname === "localhost"
-          ? "http://localhost:3000/api/news"
-          : "https://react-monkey-news.vercel.app/api/news";
 
-      // 2. Point to our proxy instead of newsapi.org directly
+    try {
+      const baseUrl = "https://react-monkey-news.vercel.app/api/news";
+
       const url = `${baseUrl}?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}`;
 
+      console.log("Fetching:", url);
+
       const response = await fetch(url);
-      setProgress(45);
-      const data = await response.json();
-      if (data.status !== "ok" && !data.articles) {
-        throw new Error(data.message || "Could not load headlines.");
+
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
       }
-      setArticles(data.articles || []);
+
+      setProgress(45);
+
+      const data = await response.json();
+
+      if (data.status !== "ok" || !data.articles) {
+        throw new Error(data.message || "Could not load news");
+      }
+
+      setArticles(data.articles);
       setTotalResults(data.totalResults || 0);
     } catch (err) {
-      setError(err.message || "Something went wrong while fetching the news.");
+      console.error("Fetch error:", err);
+      setError(err.message);
     } finally {
       setProgress(100);
       setLoading(false);
     }
   }, [country, category, page, pageSize, setProgress]);
 
-  // Reset to page 1 and update the tab title whenever the category changes
   useEffect(() => {
     document.title = `${capitalize(category)} - NewsMonkey`;
     setPage(1);
@@ -56,8 +62,7 @@ export default function NewsComponents({
 
   useEffect(() => {
     fetchNews();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, category, country, pageSize]);
+  }, [fetchNews]);
 
   const totalPages = Math.max(1, Math.ceil(totalResults / pageSize));
 
@@ -71,7 +76,7 @@ export default function NewsComponents({
       {error && (
         <div className="news-error">
           <p>{error}</p>
-          <button type="button" onClick={fetchNews} className="btn-ghost">
+          <button onClick={fetchNews} className="btn-ghost">
             Try again
           </button>
         </div>
@@ -83,10 +88,8 @@ export default function NewsComponents({
             <div className="news-skeleton" key={i} />
           ))}
         </div>
-      ) : error ? null : articles.length === 0 ? (
-        <div className="news-empty">
-          No headlines found for this category right now.
-        </div>
+      ) : articles.length === 0 ? (
+        <div className="news-empty">No headlines found.</div>
       ) : (
         <>
           <div className="news-grid">
@@ -105,22 +108,17 @@ export default function NewsComponents({
           </div>
 
           <div className="news-pagination">
-            <button
-              type="button"
-              disabled={page <= 1}
-              onClick={() => setPage((p) => p - 1)}
-              className="btn-ghost"
-            >
+            <button disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
               ← Previous
             </button>
-            <span className="news-pagination-status">
+
+            <span>
               Page {page} of {totalPages}
             </span>
+
             <button
-              type="button"
               disabled={page >= totalPages}
               onClick={() => setPage((p) => p + 1)}
-              className="btn-ghost"
             >
               Next →
             </button>
