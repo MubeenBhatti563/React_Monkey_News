@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import Navbar from "./Components/Navbar";
 import NewsComponents from "./Components/NewsComponents";
+import Footer from "./Components/Footer";
 import "./App.css";
 
 const CATEGORIES = [
@@ -47,6 +48,7 @@ export default function App() {
             ))}
           </Routes>
         </main>
+        <Footer />
       </Router>
     </div>
   );
