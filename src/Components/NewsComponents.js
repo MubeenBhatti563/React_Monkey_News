@@ -27,7 +27,7 @@ export default function NewsComponents({
       const baseUrl =
         window.location.hostname === "localhost"
           ? "http://localhost:3000/api/news"
-          : "https://vercel.app"; // <-- Replace with your real Vercel URL
+          : "https://react-monkey-news.vercel.app/api/news";
 
       // 2. Point to our proxy instead of newsapi.org directly
       const url = `${baseUrl}?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}`;
