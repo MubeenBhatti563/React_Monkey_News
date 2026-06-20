@@ -1,47 +1,53 @@
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingBar from "react-top-loading-bar";
+import Navbar from "./Components/Navbar";
+import NewsComponents from "./Components/NewsComponents";
+import "./App.css";
 
-import React, { Component } from 'react'
-import Navbar from './Components/Navbar';
-import NewsComponents from './Components/NewsComponents';
-import LoadingBar from 'react-top-loading-bar';
-import {
-  BrowserRouter as Router,
-  // Switch,
-  Route,
-  // Link,
-  Routes
-} from "react-router-dom";
+const CATEGORIES = [
+  "general",
+  "business",
+  "entertainment",
+  "health",
+  "science",
+  "sports",
+  "technology",
+];
 
-export default class App extends Component {
-  pageSize = 6;
-  state = {
-    page:0
-  }
-  setProgress = (progress)=>{
-    this.setState({progress: progress})
-  }
-  render() {
-    return (
-      <div style={{ backgroundColor: 'black' }}>
-        <Router>
-          <Navbar />
-          <LoadingBar
+export default function App() {
+  const [progress, setProgress] = useState(0);
+  const pageSize = 6;
+
+  return (
+    <div className="app-shell">
+      <Router>
+        <LoadingBar
           height={3}
-            color='#f11946'
-            progress={this.state.progress}
-          />
+          color="#e7b465"
+          progress={progress}
+          onLoaderFinished={() => setProgress(0)}
+        />
+        <Navbar />
+        <main className="app-main">
           <Routes>
-            {/* <NewsComponents setProgress={this.setProgress} pageSize={6} country='us' category='science' /> */}
-            <Route exact path='/' key='general' element={<NewsComponents setProgress={this.setProgress} pageSize={this.pageSize} country='us' category='general' />}></Route>
-            <Route exact path='/business' key='business' element={<NewsComponents setProgress={this.setProgress} pageSize={this.pageSize} country='us' category='business' />}></Route>
-            <Route exact path='/entertainment' key='entertainment' element={<NewsComponents setProgress={this.setProgress} pageSize={this.pageSize} country='us' category='entertainment' />}></Route>
-            <Route exact path='/health' key='health' element={<NewsComponents setProgress={this.setProgress} pageSize={this.pageSize} country='us' category='health' />}></Route>
-            <Route exact path='/science' key='science' element={<NewsComponents setProgress={this.setProgress} pageSize={this.pageSize} country='us' category='science' />}></Route>
-            <Route exact path='/sports' key='sports' element={<NewsComponents setProgress={this.setProgress} pageSize={this.pageSize} country='us' category='sports' />}></Route>
-            <Route exact path='/technology' key='technology' element={<NewsComponents setProgress={this.setProgress} pageSize={this.pageSize} country='us' category='technology' />}></Route>
+            {CATEGORIES.map((category) => (
+              <Route
+                key={category}
+                path={category === "general" ? "/" : `/${category}`}
+                element={
+                  <NewsComponents
+                    setProgress={setProgress}
+                    pageSize={pageSize}
+                    country="us"
+                    category={category}
+                  />
+                }
+              />
+            ))}
           </Routes>
-        </Router>
-      </div>
-    );
-  }
+        </main>
+      </Router>
+    </div>
+  );
 }
-
