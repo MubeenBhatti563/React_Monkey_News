@@ -23,11 +23,19 @@ export default function NewsComponents({
     setError(null);
     setProgress(10);
     try {
-      const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${process.env.React_App_NewsMonkey}&page=${page}&pageSize=${pageSize}`;
+      // 1. Determine base URL automatically (Local testing vs Live Production)
+      const baseUrl =
+        window.location.hostname === "localhost"
+          ? "http://localhost:3000/api/news"
+          : "https://vercel.app"; // <-- Replace with your real Vercel URL
+
+      // 2. Point to our proxy instead of newsapi.org directly
+      const url = `${baseUrl}?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}`;
+
       const response = await fetch(url);
       setProgress(45);
       const data = await response.json();
-      if (data.status !== "ok") {
+      if (data.status !== "ok" && !data.articles) {
         throw new Error(data.message || "Could not load headlines.");
       }
       setArticles(data.articles || []);
