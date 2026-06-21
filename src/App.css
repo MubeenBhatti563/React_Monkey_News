@@ -42,13 +42,9 @@ button {
 
 .app-shell {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
-
 .app-main {
   padding-top: 76px;
-  flex: 1;
 }
 
 /* ---------- Navbar ---------- */

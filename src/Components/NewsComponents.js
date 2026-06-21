@@ -22,39 +22,25 @@ export default function NewsComponents({
     setLoading(true);
     setError(null);
     setProgress(10);
-
     try {
-      const baseUrl = "https://react-monkey-news.vercel.app/api/news";
-
-      const url = `${baseUrl}?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}`;
-
-      console.log("Fetching:", url);
-
+      const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${process.env.React_App_NewsMonkey}&page=${page}&pageSize=${pageSize}`;
       const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error: ${response.status}`);
-      }
-
       setProgress(45);
-
       const data = await response.json();
-
-      if (data.status !== "ok" || !data.articles) {
-        throw new Error(data.message || "Could not load news");
+      if (data.status !== "ok") {
+        throw new Error(data.message || "Could not load headlines.");
       }
-
-      setArticles(data.articles);
+      setArticles(data.articles || []);
       setTotalResults(data.totalResults || 0);
     } catch (err) {
-      console.error("Fetch error:", err);
-      setError(err.message);
+      setError(err.message || "Something went wrong while fetching the news.");
     } finally {
       setProgress(100);
       setLoading(false);
     }
   }, [country, category, page, pageSize, setProgress]);
 
+  // Reset to page 1 and update the tab title whenever the category changes
   useEffect(() => {
     document.title = `${capitalize(category)} - NewsMonkey`;
     setPage(1);
@@ -62,7 +48,8 @@ export default function NewsComponents({
 
   useEffect(() => {
     fetchNews();
-  }, [fetchNews]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, category, country, pageSize]);
 
   const totalPages = Math.max(1, Math.ceil(totalResults / pageSize));
 
@@ -76,7 +63,7 @@ export default function NewsComponents({
       {error && (
         <div className="news-error">
           <p>{error}</p>
-          <button onClick={fetchNews} className="btn-ghost">
+          <button type="button" onClick={fetchNews} className="btn-ghost">
             Try again
           </button>
         </div>
@@ -88,8 +75,10 @@ export default function NewsComponents({
             <div className="news-skeleton" key={i} />
           ))}
         </div>
-      ) : articles.length === 0 ? (
-        <div className="news-empty">No headlines found.</div>
+      ) : error ? null : articles.length === 0 ? (
+        <div className="news-empty">
+          No headlines found for this category right now.
+        </div>
       ) : (
         <>
           <div className="news-grid">
@@ -108,17 +97,22 @@ export default function NewsComponents({
           </div>
 
           <div className="news-pagination">
-            <button disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
+            <button
+              type="button"
+              disabled={page <= 1}
+              onClick={() => setPage((p) => p - 1)}
+              className="btn-ghost"
+            >
               ← Previous
             </button>
-
-            <span>
+            <span className="news-pagination-status">
               Page {page} of {totalPages}
             </span>
-
             <button
+              type="button"
               disabled={page >= totalPages}
               onClick={() => setPage((p) => p + 1)}
+              className="btn-ghost"
             >
               Next →
             </button>
