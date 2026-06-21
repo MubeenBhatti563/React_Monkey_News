@@ -23,13 +23,21 @@ export default function NewsComponents({
     setError(null);
     setProgress(10);
     try {
-      const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${process.env.React_App_NewsMonkey}&page=${page}&pageSize=${pageSize}`;
+      const baseUrl = "https://react-monkey-news.vercel.app/api/news";
+      const url = `${baseUrl}?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}`;
       const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+
       setProgress(45);
       const data = await response.json();
+
       if (data.status !== "ok") {
         throw new Error(data.message || "Could not load headlines.");
       }
+
       setArticles(data.articles || []);
       setTotalResults(data.totalResults || 0);
     } catch (err) {
