@@ -128,7 +128,17 @@ Vercel automatically redeploys the serverless API.
 
 ## 📸 Screenshots
 
-Add screenshots of your application here.
+### Home Page
+
+![Home Page](./screenshot/news_monkey.png)
+
+### Pagination
+
+![Pagination](./screenshot/news_monkey_pagination.png)
+
+### Science
+
+![Science](./screenshot/science.png)
 
 ## 📈 Future Improvements
 
